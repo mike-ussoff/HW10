@@ -1,1 +1,1 @@
-## Перенос учебной БД AdventureWorks c SQL Server на PostgreSQL
+Перенос учебной БД AdventureWorks c SQL Server на PostgreSQL
