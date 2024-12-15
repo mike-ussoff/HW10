@@ -1,0 +1,46 @@
+﻿<Window x:Class="ShowPictures.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ShowPictures"
+        mc:Ignorable="d"
+        Title="Просмотр изображений из БД" Height="700" Width="800" ResizeMode="NoResize">
+    <Grid>
+        <StackPanel>
+            <GroupBox Header="MS SQL" Height="148" Margin="5,0,5,0">
+                <StackPanel>
+                    <StackPanel Height="34" Orientation="Horizontal">
+                        <Label Content="Строка подключения :" Height="26" Width="135"/>
+                        <TextBox x:Name="msConnectionStringBox" Height="26" Width="619" FontFamily="Cascadia Code" Text="Server=localhost\SQLEXPRESS;Database=AdventureWorks;User Id=sa;Password=12345678;TrustServerCertificate=True;"/>
+                    </StackPanel>
+                    <StackPanel Height="90" Orientation="Horizontal">
+                        <Label Content="Запрос :" Height="26" Width="63"/>
+                        <TextBox x:Name="msQueryBox" Height="80" TextWrapping="Wrap" AcceptsReturn="True" Width="613" FontFamily="Cascadia Code" Text="select LargePhoto from Production.ProductPhoto where ProductPhotoID = 69"/>
+                        <StackPanel>
+                            <Button x:Name="msQueryButton" Content="Выполнить" Height="26" Width="72" Margin="5,10,5,0" Click="msQueryButton_Click"/>
+                            <Button x:Name="msSaveButton" Content="Сохранить" Height="26" Width="72" Margin="5,10,5,0" Click="msQueryButton_Click" />
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="PostgeeSQL" Height="148" Margin="5,0,5,0">
+                <StackPanel>
+                    <StackPanel Height="34" Orientation="Horizontal">
+                        <Label Content="Строка подключения :" Height="26" Width="135"/>
+                        <TextBox x:Name="pgConnectionStringBox" Height="26" Width="619" Text="Server=192.168.1.36;Port=5432;User Id=postgres;Password=12345678;Database=adventureworks;" FontFamily="Cascadia Code"/>
+                    </StackPanel>
+                    <StackPanel Height="90" Orientation="Horizontal">
+                        <Label Content="Запрос :" Height="26" Width="63"/>
+                        <TextBox x:Name="pgQueryBox" Height="80" TextWrapping="Wrap" AcceptsReturn="True" Width="613" Text="select LargePhoto from Production.ProductPhoto where ProductPhotoID = 72" FontFamily="Cascadia Code"/>
+                        <StackPanel>
+                            <Button x:Name="pgQueryButton" Content="Выполнить" Height="26" Width="74" Margin="5,10,5,0" Click="pgQueryButton_Click"/>
+                            <Button x:Name="pgSaveButton" Content="Сохранить" Height="26" Width="72" Margin="5,10,5,0" Click="pgQueryButton_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+            <Image x:Name="dbImage" Margin="5,0,5,0" Height="352" Source="/placeholder.jpg" />
+        </StackPanel>
+    </Grid>
+</Window>
